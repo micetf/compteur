@@ -1,50 +1,46 @@
 import React from "react";
-import "bootstrap/js/collapse";
+import Svg, { CHEVERON_RIGHT } from "../Svg";
+import "bootstrap/js/dist/collapse";
 
-import Paypal from "./paypal";
-import Contact from "./contact";
-import Tools from "./tools";
-
-export default ({ title }) => (
-    <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div className="navbar-header">
-            <a
-                className="navbar-brand text-white"
-                href="https://micetf.fr"
-                title="Des Outils Pour La Classe"
-            >
+const liRender = (item, index) => (
+    <li key={index} className="nav-item">
+        {item}
+    </li>
+);
+export default ({
+    tool,
+    path,
+    left = [],
+    center = [],
+    right = [] /*  = [<button className="btn btn-secondary my-1 mx-1">Right</button>] */,
+}) => {
+    return (
+        <nav className="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+            <a className="navbar-brand" href={path}>
                 MiCetF
             </a>
             <button
+                className="navbar-toggler"
                 type="button"
-                className="navbar-toggle"
                 data-toggle="collapse"
-                data-target="#navbarMobile"
+                data-target="#navbarToggle"
+                aria-controls="navbarToggle"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
             >
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
+                <span className="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <div className="collapse navbar-collapse" id="navbarMobile">
-            <div className="nav navbar-nav">
-                <span className="navbar-brand text-white">></span>
-                <span className="navbar-brand text-white">{title}</span>
+            <div className="collapse navbar-collapse" id="navbarToggle">
+                <span className="navbar-text text-light mr-1">
+                    <Svg src={CHEVERON_RIGHT} />
+                </span>
+                <a className="navbar-brand" href="#">
+                    {tool}
+                </a>
+                <ul className="navbar-nav ml-2">{left.map(liRender)}</ul>
+                <ul className="navbar-nav mx-auto">{center.map(liRender)}</ul>
+                <ul className="navbar-nav ml-auto">{right.map(liRender)}</ul>
             </div>
-            <div className="navbar-right mr-2">
-                <ul className="nav navbar-nav pull-left">
-                    <li className="mr-2">
-                        <Paypal />
-                    </li>
-                    <li className="mr-2">
-                        <Tools />
-                    </li>
-                    <li>
-                        <Contact />
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-);
+        </nav>
+    );
+};

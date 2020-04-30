@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 10" height="10mm" width="40mm">
+   <rect ry="1" rx="1" y="0" x="0" height="10" width="40" fill="yellow"/>
+   <text x="18.79" y="4">
+      <tspan x="18.79" y="4" style="font-weight:400;font-size:5px;font-family:'Arial Black'" fill="#004fb3">1</tspan>
+   </text>
+   <text x="17.09" y="9">
+      <tspan x="16" y="9" style="font-weight:400;font-size:5px;font-family:'Arial Black'" fill="#004fb3">100</tspan>
+   </text>
+   <text x="16.82" y="4.2">
+      <tspan x="16.22" y="4.2" style="font-weight:400;font-size:5px;font-family:'Arial Black'" fill="#004fb3">____</tspan>
+   </text>
+</svg>

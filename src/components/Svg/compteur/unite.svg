@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 10" height="10mm" width="40mm">
+   <rect ry="1.5" rx="1.5" y="0" x="0" height="10" width="40" style="fill:green"/>
+   <text y="7.5" x="17.21">
+      <tspan style="font-weight:400;font-size:7px;font-family:'Arial Black'" fill="#33001A" y="7.5" x="17.21">U</tspan>
+   </text>
+</svg>

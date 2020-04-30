@@ -1,4 +1,4 @@
-import config from "../config";
+import compteurs from "../compteurs";
 export const getHash = () => {
     const [
         ,
@@ -8,7 +8,7 @@ export const getHash = () => {
         /^(?:#(milliards|millions|milliers|unites|decimaux))?(?:=([0-9]*(?:[\.,][0-9]{1,3})?))?/
     );
 
-    const selectedCount = config.byId[hashChoix];
+    const selectedCount = compteurs.byId[hashChoix];
     const nombre =
         hashNombre !== 0 ? hashNombre.toString().replace(",", ".") : 0;
 
@@ -18,12 +18,13 @@ export const getHash = () => {
         nombre: nombre < selectedCount.max ? nombre : 0,
     };
 };
+
 const incrementCompteur = (compteur, coef) => {
     const next = Math.round(compteur.nombre * 1000 + Math.pow(10, coef + 3));
     return {
         ...compteur,
         nombre:
-            next < config.byId[compteur.choix].max * 1000
+            next < compteurs.byId[compteur.choix].max * 1000
                 ? next / 1000
                 : compteur.nombre,
     };

@@ -4,13 +4,19 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../css/style.css";
 
 import Navbar from "./Navbar";
+import Contact from "./Navbar/Contact";
+import Paypal from "./Navbar/Paypal";
+import Tools from "./Navbar/Tools";
+
 import Choix from "./Choix";
 import Compteur from "./Compteur";
 
 import { getHash, updateCompteur } from "../actions";
 
 const initialCompteur = getHash();
-export default ({ title }) => {
+export default ({ tool }) => {
+    const path = "https://micetf.fr";
+
     const [compteur, setCompteur] = useState(initialCompteur);
 
     const handleUpdateChoix = ({ choix }) => {
@@ -26,21 +32,29 @@ export default ({ title }) => {
     };
 
     return (
-        <div className="container">
-            <Navbar title={title} />
+        <div className="container-fluid">
+            <Navbar
+                path={path}
+                tool={tool}
+                right={[
+                    <Paypal />,
+                    <Tools path={path} />,
+                    <Contact tool={tool} />,
+                ]}
+            />
             <div className="row">
-                <div className="row mb-3">
+                <div className="row mb-3 mx-auto">
                     <Choix
                         choix={compteur.choix}
                         updateChoix={handleUpdateChoix}
                     />
                 </div>
-                <div className="row">
-                    <Compteur
-                        compteur={compteur}
-                        updateNombre={handleUpdateNombre}
-                    />
-                </div>
+            </div>
+            <div className="container-fluid">
+                <Compteur
+                    compteur={compteur}
+                    updateNombre={handleUpdateNombre}
+                />
             </div>
         </div>
     );

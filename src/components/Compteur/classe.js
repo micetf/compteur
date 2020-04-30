@@ -1,30 +1,25 @@
 import React from "react";
-import Chiffre from "./chiffre";
+import Digit from "./digit";
 
-const renderLabelClasse = (label) => {
-    if (label === "coma") {
-        return <p className="label invisible"> </p>;
-    }
-    return <p className="label label-info">{label}</p>;
+const renderClasseName = (label) => {
+    return <div className="badge badge-info">{label}</div>;
 };
 
 export default ({ classe, nombre, updateNombre }) => {
-    const renderChiffre = (chiffre, index) => {
-        return (
-            <Chiffre
-                key={index}
-                chiffre={chiffre}
-                nombre={nombre}
-                updateNombre={updateNombre}
-            />
-        );
-    };
+    const renderDigit = (id, index) => (
+        <Digit
+            key={index}
+            digit={classe.digits.byId[id]}
+            nombre={nombre}
+            updateNombre={updateNombre}
+        />
+    );
     return (
-        <div>
-            <div className="classe-header">
-                {renderLabelClasse(classe.label)}
+        <div className="classe classe-header">
+            <div className="mb-2">{renderClasseName(classe.name)}</div>
+            <div className="chiffres">
+                {classe.digits.allIds.map(renderDigit)}
             </div>
-            <div className="chiffres">{classe.chiffres.map(renderChiffre)}</div>
         </div>
     );
 };

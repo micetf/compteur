@@ -1,23 +1,27 @@
 import React from "react";
 
-import config from "../../config";
+import compteurs from "../../compteurs";
 import Classe from "./classe";
+import Coma from "./coma";
 
 export default ({ compteur: { choix, nombre }, updateNombre }) => {
     const renderClasse = (classe) => {
-        return (
-            <div className={`classe ${classe.label}`} key={classe.label}>
-                <Classe
-                    classe={classe}
-                    nombre={nombre}
-                    updateNombre={updateNombre}
-                />
-            </div>
+        const isNotClasse = classe.name === "coma";
+        return isNotClasse ? (
+            <Coma key="coma" />
+        ) : (
+            <Classe
+                key={classe.name}
+                classe={classe}
+                nombre={nombre}
+                updateNombre={updateNombre}
+            />
         );
     };
+
     return (
         <div className="compteur">
-            {config.byId[choix].classes.map(renderClasse)}
+            {compteurs.byId[choix].classes.map(renderClasse)}
         </div>
     );
 };

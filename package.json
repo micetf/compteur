@@ -1,14 +1,12 @@
 {
     "name": "compteur",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "private": true,
     "description": "Application web proposant un compteur virtuel",
     "main": "index.js",
     "scripts": {
-        "clean": "rimraf build",
-        "serve": "webpack-dev-server --content-base / --open",
-        "build-dev": "yarn clean && webpack",
-        "build-prod": "NODE_ENV=production yarn clean && webpack -p"
+        "start": "webpack-dev-server --mode=development --open",
+        "build": "webpack --mode=production"
     },
     "keywords": [
         "école",
@@ -20,29 +18,36 @@
     ],
     "author": "Frédéric MISERY <webmaster@micetf.fr> (https://micetf.fr/)",
     "license": "MIT",
-    "devDependencies": {
-        "ajv": "^5.3.0",
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "babel-preset-env": "^1.6.1",
-        "babel-preset-react": "^6.24.1",
-        "css-loader": "^0.28.7",
-        "extract-text-webpack-plugin": "^3.0.2",
-        "file-loader": "^1.1.5",
-        "html-webpack-plugin": "^2.30.1",
-        "image-webpack-loader": "^3.4.2",
-        "rimraf": "^2.6.2",
-        "style-loader": "^0.19.0",
-        "url-loader": "^0.6.2",
-        "webpack": "~3.8.1",
-        "webpack-dev-server": "^2.9.3"
-    },
     "dependencies": {
-        "bootstrap": "^3.3.7",
-        "jquery": "^3.1.1",
-        "react": "^16.3.2",
-        "react-dom": "^16.3.2"
+        "bootstrap": "^4.4.1",
+        "jquery": "3.4.1",
+        "popper.js": "^1.16.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "@babel/preset-react": "^7.9.4",
+        "@svgr/webpack": "^5.3.1",
+        "autoprefixer": "^9.7.6",
+        "babel-loader": "^8.1.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^3.5.3",
+        "file-loader": "^6.0.0",
+        "html-webpack-plugin": "^4.2.0",
+        "img-loader": "^3.0.1",
+        "mini-css-extract-plugin": "^0.9.0",
+        "node-sass": "^4.14.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "postcss-loader": "^3.0.0",
+        "sass-loader": "^8.0.2",
+        "style-loader": "^1.2.0",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.43.0",
+        "webpack-bundle-analyzer": "^3.7.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
     },
     "browserslist": [
         "defaults",
